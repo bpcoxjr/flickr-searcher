@@ -10,22 +10,26 @@ flickrApp.controller('flickrController', function($scope, $http){
 
 	$scope.submitForm = function(){
 		$scope.formSubmitted = true; //form has been submitted
-		var tag = $scope.keyword;
-		searchFlickr(keyword);
-		console.log('You searched for: ' + tag);
+		var tag = $scope.tag;
+		searchFlickr(tag);
+		console.log('Searched Flickr for: ' + tag);
 	};
 
-	function searchFlickr(keyword) {
+	function searchFlickr(tag) {
 		//flickr api requirements
-		var url = "https://api.flickr.com/services/rest";
+		var baseUrl = "https://api.flickr.com/services/rest";
         var params = {
             method: 'flickr.photos.search',
             api_key: '2c6c55ca6b5f296450ad15f1d350401b',
-            tags: keyword,
+            tags: tag,
             format: 'json',
             nojsoncallback: 1
-        };
-		$http.json(url, params).success(function(results){
+        }
+        
+        var url = baseUrl + "/?method=" + params.method + "&api_key=" + params.api_key + "&text=" + params.tags + "&format=" + params.format + "&nojsoncallback" + params.nojsoncallback;
+		return $http.jsonp(url);
+
+		$http.jsonp(url).success(function(response){
 			if(response.meta.code == 200){ //200 status code tells us everything worked
 				if(response.data.length > 0){ //if there is at least 1 photo found, do this...
 					console.log(response.data);
@@ -40,12 +44,12 @@ flickrApp.controller('flickrController', function($scope, $http){
 				$scope.message = "Error!";
 			}
 		});
-	}
+	};
 
     $scope.reset = function(){
     	console.log("Reset!");
     	$scope.formSubmitted = false;
     	$scope.message = null;
     	$scope.photos = {};
-    }           
+    }          
 });
