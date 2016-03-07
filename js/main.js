@@ -9,10 +9,10 @@ flickrApp.controller('flickrController', function($scope, $http){
 	$scope.formSubmitted = false; //form not submitted when app initialized
 	$scope.message = ""; //no message to display when app initialized
 	$scope.results = []; //array to put our json results in
-	$scope.searchingMessage = false;
+	$scope.searchingMessage = false; //boolean to show/hide searching message
 
 	$scope.submitForm = function(){
-		$scope.formSubmitted = true; //form has been submitted
+		$scope.formSubmitted = true;
 		$scope.searchingMessage = true;
 		var tag = $scope.tag;
 		searchFlickr(tag);
@@ -54,5 +54,25 @@ flickrApp.controller('flickrController', function($scope, $http){
     	$scope.message = "";
     	$scope.results = [];
     }       
+
+    //"ABOUT" button modal controls
+    var modal = document.getElementById("aboutModal");
+    var btn = document.getElementById("aboutButton");
+    var span = document.getElementsByClassName("close")[0];
+
+    //open the modal when user clicks the "ABOUT" button
+    btn.onclick = function(){
+    	modal.style.display = "block";
+    }
+    //close the modal when user clicks "CLOSE"
+    span.onclick = function(){
+    	modal.style.display = "none";
+    }
+    //close the modal if user clicks anywhere outside of the modal itself
+    window.onclick = function(){
+    	if (event.target == modal){
+    		modal.style.display= "none";
+    	}
+    }
 });
 

@@ -8,35 +8,41 @@
 	<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<div class="container" ng-controller="flickrController">
-	<header class="header"><img src="img/flickr-logo.png" height="70px" width="70px"><span class="flickr">Flickr</span><span class="searcher">Searcher</span></header>
-	<div class="input-area">
-		<form name="searchForm" id="form" role="form">
-		<input type="text" name="tagSearch" placeholder="Enter a keyword to search Flickr..." maxlength="25" ng-model="tag">
-		<button class="submit-button" type="submit" ng-click="submitForm()">SUBMIT</button>
-		<button class="reset-button" type="submit" ng-click="startOver()">RESET</button>
-		</form>
+	<!-- Trigger/Open The Modal -->
+	<button id="aboutButton">ABOUT</button>
+	<!-- The Modal -->
+	<div id="aboutModal" class="modal">
+	  	<!-- Modal content -->
+	  	<div class="modal-content">
+	    	<span class="close">X</span>
+	    	<p>DESIGNED BY: <a href="http://www.bpatrickcox.com">PATRICK COX</a></p>
+	  	</div>
 	</div>
-	<!-- hide & show this div based on whether or not the user has successfully submitted the form with a tag -->
-	<div class="searching" id="searching" ng-show="formSubmitted && searchForm.tagSearch.$valid && searchingMessage"
-		<i><p>Searching Flickr for photos tagged with: "{{ tag }}"...</p></i>
+	<div class="container" ng-controller="flickrController">
+		<header class="header"><img src="img/flickr-logo.png" height="70px" width="70px"><span class="flickr">Flickr</span><span class="searcher">Searcher</span></header>
+		<div class="input-area">
+			<form name="searchForm" id="form" role="form">
+			<input type="text" name="tagSearch" placeholder="Enter a keyword to search Flickr..." maxlength="25" ng-model="tag">
+			<button class="submit-button" type="submit" ng-click="submitForm()">SUBMIT</button>
+			<button class="reset-button" type="submit" ng-click="startOver()">RESET</button>
+			</form>
+		</div>
+		<!-- hide & show this div based on whether or not the user has successfully submitted the form with a tag -->
+		<div class="searching" id="searching" ng-show="formSubmitted && searchForm.tagSearch.$valid && searchingMessage"
+			<i><p>Searching Flickr for photos tagged with: "{{ tag }}"...</p></i>
+		</div>
+		<hr>
+		<!-- display appropriate message to user per searchFlickr function -->
+		<i><p class="message" ng-if="formSubmitted">{{ message }}</p></i>
+		<!-- images go here -->
+		<div class ="imageHolder" ng-repeat="result in results.photos.photo">
+			<img ng-src="https://farm{{result.farm}}.staticflickr.com/{{result.server}}//{{result.id}}_{{result.secret}}.jpg">
+			<h3 class="title">User Title: {{ result.title }}</h3>
+		</div>
+	  	<!-- scripts -->
+	  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	  	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js"></script>
+		<script src="js/main.js"></script>
 	</div>
-	<hr>
-	<!-- display appropriate message to user per searchFlickr function -->
-	<i><p class="message" ng-if="formSubmitted">{{ message }}</p></i>
-	<!-- images go here -->
-	<div class ="imageHolder" ng-repeat="result in results.photos.photo">
-		<img ng-src="https://farm{{result.farm}}.staticflickr.com/{{result.server}}//{{result.id}}_{{result.secret}}.jpg">
-		<h3 style="padding: 0px 10px;"> User Title: {{ result.title }} </h3>
-	</div>
-	<!-- footer -->
-	<footer class="footer">
-    	<p>Created by <a href="http://www.bpatrickcox.com">B. Patrick Cox, Jr.</a></p>
-  	</footer>
-  	<!-- scripts -->
-  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-  	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js"></script>
-	<script src="js/main.js"></script>
-</div>
 </body>
 </html>

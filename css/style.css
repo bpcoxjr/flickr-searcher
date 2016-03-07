@@ -93,12 +93,15 @@ img {
 	animation: 1s show;
 }
 
-h3 {
+.title {
 	color: #ff0084;
 	font-family: 'Istok Web', sans-serif;
 	font-weight: bold;
 	font-size: 1.25em;
 	-webkit-font-smoothing: antialiased;
+	width: 100%;
+	padding: 0px 10px;
+	text-align: center;
 }
 
 .message {
@@ -128,19 +131,88 @@ h3 {
 	background-color: #4e9dfd;
 }
 
-.footer {
-	color: #ff0084;
+#aboutButton {
+	height: 50px;
+	padding: .75em 1.5em;
+	border-radius: .5em;
+	background-color: #0264DB;
+	color: #FFF;
+	border: none;
 	font-family: 'Istok Web', sans-serif;
+	font-size: 1em;
 	font-weight: bold;
-	font-size: 1.25em;
-	position: absolute;
-	bottom: 0;
+	-webkit-font-smoothing: antialiased;
+	top: 0;
 	left: 0;
-	right: 0;
+	margin-top: 1em;
+	margin-left: 1em;
 }
 
-.footer a {
+#aboutButton:hover {
+	background-color: #4e9dfd;
+}
+
+.about a {
 	margin-top: 5px;
 	color: #0264DB;
+	padding-top: 4em;
 }
 
+.modal {
+	position: fixed;
+	display: none; /*hide until clicked*/
+	z-index: 1; /*stay on top*/
+	left: 0;
+	top: 0;
+	width: 25%;
+	height: 100px;
+	margin-top: 1em;
+	margin-left: 1em;
+	border-radius: 10px;
+	background-color: #0264DB;
+	-webkit-animation: 2s show;
+	animation: 2s show;
+}
+
+.modal p {
+	text-align: center;
+	font-family: 'Istok Web', sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	color: #FFF;
+	-webkit-font-smoothing: antialiased;
+}
+
+.modal a {
+	text-decoration: underline;
+	color: #FFF;
+}
+
+.modal a:hover {
+	color: #ff0084;
+}
+
+.close {
+	font-family: 'Istok Web', sans-serif;
+	font-size: 1.25em;
+	font-weight: bold;
+	color: #FFF;
+	-webkit-font-smoothing: antialiased;
+	padding-left: .25em;
+	-webkit-animation: .5s hide;
+	animation: .5s hide;
+}
+
+-@-webkit-keyframes hide {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+@keyframes hide {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+.close:hover {
+	color: #ff0084;
+}
