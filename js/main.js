@@ -48,11 +48,11 @@ flickrApp.controller('flickrController', function($scope, $http){
 	};
 
     $scope.startOver = function(){
-    	console.log("Reset!");
+    	$scope.message = "";
     	document.getElementById("form").reset();
     	$scope.formSubmitted = false;
-    	$scope.message = "";
     	$scope.results = [];
+    	console.log("Reset!");
     }       
 
     //"ABOUT" button modal controls

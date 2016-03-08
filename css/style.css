@@ -109,8 +109,6 @@ img {
 	font-family: 'Istok Web', sans-serif;
 	font-weight: bold;
 	font-size: 1.25em;
-	-webkit-animation: 1s show;
-	animation: 1s show;
 }
 
 .reset-button {
