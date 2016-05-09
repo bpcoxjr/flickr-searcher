@@ -24,7 +24,7 @@ flickrApp.controller('flickrController', function($scope, $http){
         	url : "https://api.flickr.com/services/rest",
         	method: 'GET',
         	params: {
-        		method: 'flickr.photos.search',
+        		  method: 'flickr.photos.search',
             	api_key: '2c6c55ca6b5f296450ad15f1d350401b',
             	tags: tag,
             	format: 'json',
