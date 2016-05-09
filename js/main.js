@@ -25,10 +25,10 @@ flickrApp.controller('flickrController', function($scope, $http){
         	method: 'GET',
         	params: {
         		method: 'flickr.photos.search',
-            	api_key: '2c6c55ca6b5f296450ad15f1d350401b',
-            	tags: tag,
-            	format: 'json',
-            	nojsoncallback: 1
+            		api_key: '2c6c55ca6b5f296450ad15f1d350401b',
+            		tags: tag,
+            		format: 'json',
+            		nojsoncallback: 1
         	}
         }).success(function(response){
         	console.log("Success!");
