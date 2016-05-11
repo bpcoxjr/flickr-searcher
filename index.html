@@ -37,7 +37,7 @@
 		<!-- images go here -->
 		<div class ="imageHolder" ng-repeat="result in results.photos.photo">
 			<img ng-src="https://farm{{result.farm}}.staticflickr.com/{{result.server}}//{{result.id}}_{{result.secret}}.jpg">
-			<h3 class="title">User Title: {{ result.title }}</h3>
+			<h3 class="title">User Caption: {{ result.title }}</h3>
 		</div>
 	  	<!-- scripts -->
 	  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>

@@ -71,8 +71,8 @@ input {
 	font-family: 'Istok Web', sans-serif;
 	font-weight: bold;
 	font-size: 1.25em;
-	-webkit-animation: 1s show;
-	animation: 1s show;
+	-webkit-animation: 0.3s show;
+	animation: 0.3s show;
 }
 
 @-webkit-keyframes show {
@@ -99,8 +99,8 @@ hr {
 
 img {
 	border-radius: 25px;
-	-webkit-animation: 1s show;
-	animation: 1s show;
+	-webkit-animation: 0.3s show;
+	animation: 0.3s show;
 }
 
 .title {
