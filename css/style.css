@@ -8,8 +8,10 @@ html {
 }
 
 .header {
-	text-align: center;
 	margin-top: 8em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .flickr {
@@ -42,6 +44,7 @@ input {
 	font-family: 'Isotek Web', sans-serif;
 	color: #bfbfbf;
 	font-size: 2em;
+	padding-left: 0.5em;
 	box-sizing: border-box;
 }
 
@@ -101,6 +104,7 @@ img {
 	border-radius: 25px;
 	-webkit-animation: 0.3s show;
 	animation: 0.3s show;
+	margin-top: 1.8em;
 }
 
 .title {
@@ -109,9 +113,8 @@ img {
 	font-weight: bold;
 	font-size: 1.25em;
 	-webkit-font-smoothing: antialiased;
-	width: 100%;
-	padding: 0px 10px;
-	text-align: center;
+	width: 50%;
+	margin: 0 auto;
 }
 
 .message {
@@ -224,3 +227,33 @@ img {
 .close:hover {
 	color: #ff0084;
 }
+
+/* media queries */ 
+
+@media screen and (max-width: 768px) {
+	input {
+		font-size: 1em;
+	}
+
+	.header {
+		margin-top: 2em;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.flick-pic {
+		width: 300px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

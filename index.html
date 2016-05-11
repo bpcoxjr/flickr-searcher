@@ -22,7 +22,7 @@
 		<header class="header"><img src="img/flickr-logo.png" height="70px" width="70px"><span class="flickr">Flickr</span><span class="searcher">Searcher</span></header>
 		<div class="input-area">
 			<form name="searchForm" id="form" role="form">
-			<input type="text" name="tagSearch" placeholder="Enter a keyword to search Flickr..." maxlength="25" ng-model="tag">
+			<input type="text" name="tagSearch" placeholder="Enter keyword(s)..." maxlength="25" ng-model="tag">
 			<button class="submit-button" type="submit" ng-click="submitForm()">SUBMIT</button>
 			<button class="reset-button" type="submit" ng-click="startOver()">RESET</button>
 			</form>
@@ -36,7 +36,7 @@
 		<i><p class="message" ng-if="formSubmitted">{{ message }}</p></i>
 		<!-- images go here -->
 		<div class ="imageHolder" ng-repeat="result in results.photos.photo">
-			<img ng-src="https://farm{{result.farm}}.staticflickr.com/{{result.server}}//{{result.id}}_{{result.secret}}.jpg">
+			<img class="flick-pic" ng-src="https://farm{{result.farm}}.staticflickr.com/{{result.server}}//{{result.id}}_{{result.secret}}.jpg">
 			<h3 class="title">User Caption: {{ result.title }}</h3>
 		</div>
 	  	<!-- scripts -->
